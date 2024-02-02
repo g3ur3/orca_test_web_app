@@ -1,0 +1,43 @@
+#### Baseline maximum throughput and lowest latency of each model when running individually
+To measure throughput, batch inference mode with big batch size is used.
+
+To measure latency, single-frame inference mode is used.
+Baseline results:
+Model name                                         : FPS   : Latency (ms)
+yolo_v5s_person_det--512x512_quant_n2x_orca1_1     :  61.5 :  11.9
+mobilenet_v1_imagenet--224x224_quant_n2x_orca1_1   : 222.0 :   8.6
+mobilenet_v2_ssd_coco--300x300_quant_n2x_orca1_1   : 106.7 :   9.1
+
+
+
+#### Batch predict performance of all models running in parallel in multiple threads
+This use case gives highest possible throughput when switching multiple models
+
+Latency vs batch size (ms)
+                                                   :     2 :     4 :     8 :    16
+yolo_v5s_person_det--512x512_quant_n2x_orca1_1     : 128.0 : 150.5 : 193.1 : 179.6
+mobilenet_v1_imagenet--224x224_quant_n2x_orca1_1   : 119.1 : 139.1 : 155.0 : 117.6
+mobilenet_v2_ssd_coco--300x300_quant_n2x_orca1_1   : 100.4 : 106.8 : 109.4 :  49.6
+
+FPS vs batch size
+                                                   :     2 :     4 :     8 :    16
+yolo_v5s_person_det--512x512_quant_n2x_orca1_1     :  44.9 :  46.6 :  46.4 :  46.0
+mobilenet_v1_imagenet--224x224_quant_n2x_orca1_1   :  53.6 :  51.9 :  51.4 :  76.3
+mobilenet_v2_ssd_coco--300x300_quant_n2x_orca1_1   :  49.0 :  52.4 :  52.6 : 101.5
+
+
+#### Single predict performance of all models running in parallel in multiple threads
+This use case gives smallest possible latency when switching multiple models
+
+Latency vs batch size (ms)
+                                                   :     2 :     4 :     8 :    16
+yolo_v5s_person_det--512x512_quant_n2x_orca1_1     : 130.7 :  99.1 :  91.4 :  23.3
+mobilenet_v1_imagenet--224x224_quant_n2x_orca1_1   :  90.5 :  60.5 :  89.7 :  20.5
+mobilenet_v2_ssd_coco--300x300_quant_n2x_orca1_1   :  61.6 :  61.4 :  56.2 :  22.4
+
+FPS vs batch size
+                                                   :     2 :     4 :     8 :    16
+yolo_v5s_person_det--512x512_quant_n2x_orca1_1     :  38.0 :  36.1 :  43.7 :  42.7
+mobilenet_v1_imagenet--224x224_quant_n2x_orca1_1   :  47.3 :  40.4 :  45.9 :  48.5
+mobilenet_v2_ssd_coco--300x300_quant_n2x_orca1_1   :  39.3 :  37.4 :  46.4 :  44.4
+
