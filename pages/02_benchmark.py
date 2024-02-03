@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-data_dir = '/home/gotom/orca_test_plans/orca_test_web_app/data/'
+data_dir = './data/'
 
 st.title('ORCA Benchmark Test')
 st.caption('Orca Benchmark Scripts from PySDKExamples')
