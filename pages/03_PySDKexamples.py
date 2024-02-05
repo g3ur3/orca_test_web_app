@@ -7,20 +7,18 @@ st.title('PySDKExamples output examples')
 st.caption('Running scripts within PySDKExamples')
 
 #Basic outputs
-st.subheader('Basic Exampels')
-col1, col2 = st.columns(2)
+st.subheader('Basic Example')
+st.text('basic_pysdk_demo_image.ipynb')
+image = Image.open(data_dir + 'basic_pysdk_demo_image.png')
+st.image(image, width = 300)
+st.link_button('Script', 'https://colab.research.google.com/github/DeGirum/PySDKExamples/blob/main/examples/basic/basic_pysdk_demo_image.ipynb')
 
-with col1:
-    st.text('basic_pysdk_demo_image.ipynb')
-    image = Image.open(data_dir + 'basic_pysdk_demo_image.png')
-    st.image(image, width = 300)
-    st.link_button('Script', 'https://colab.research.google.com/github/DeGirum/PySDKExamples/blob/main/examples/basic/basic_pysdk_demo_image.ipynb')
-    
-with col2:
-    st.text('basic_pysdk_demo_video_stream.ipynb')
-    image = Image.open(data_dir + 'basic_pysdk_demo_video_stream.png')
-    st.image(image, width = 300)
-    st.link_button('Script', 'https://colab.research.google.com/github/DeGirum/PySDKExamples/blob/main/examples/basic/basic_pysdk_demo_video_stream.ipynb')
+st.subheader('Single Model Example')
+st.text('object_detection_annotate_video_file.ipynb')
+video_file = open(data_dir + 'annotated_video.mp4', 'rb')
+video_bytes = video_file.read()
+st.video(video_bytes)
+st.link_button('Script', 'https://colab.research.google.com/github/DeGirum/PySDKExamples/blob/main/examples/singlemodel/object_detection_annotate_video_file.ipynb')
 
 #Specialized outputs
 st.subheader('Advanced Algorithms')
